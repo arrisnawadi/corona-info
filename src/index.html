@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Shalat Time</title>
+</head>
+
+<body>
+	<div class="container-fluid px-0">
+
+		<!-- data kasus di indonesia -->
+		<div class="row my-3">
+			<div class="col-12">
+				<h3 class="text-center">Data Indonesia</h3>
+			</div>
+			<div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-4 px-3 mx-auto data-indo">
+			</div>
+		</div>
+
+		<!-- data kasus seluruh provinsi -->
+		<div class="row mx-2 my-3">
+			<div class="col-12">
+				<h3 class="text-center">Tabel Kasus Indonesia</h3>
+			</div>
+			<div class="col-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr class="text-center bg-info text-light">
+							<th scope="col">Provinsi</th>
+							<th scope="col">Positif</th>
+							<th scope="col">Sembuh</th>
+							<th scope="col">Meninggal</th>
+						</tr>
+					</thead>
+					<tbody id="data-wilayah"></tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- Grafik Kasus di Indonesia per Data -->
+		<div class="container-fluid py-4">
+			<h3 class="text-center">Grafik Kasus per Kategori</h3>
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<canvas id="chartAllProv" width="800" height="400"></canvas>
+					</div>
+					<div class="carousel-item">
+						<canvas id="chartPositif" width="800" height="400"></canvas>
+					</div>
+					<div class="carousel-item">
+						<canvas id="chartMeninggal" width="800" height="400"></canvas>
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+
+		<!-- total data kasus dunia -->
+		<div class="row my-3">
+			<div class="col-12">
+				<h3 class="text-center">Data Dunia</h3>
+			</div>
+			<div
+				class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 px-3 mx-auto data-all-global">
+			</div>
+		</div>
+
+		<!-- data kasus seluruh negara -->
+		<div class="row mx-2 my-3">
+			<div class="col-12">
+				<h3 class="text-center">Tabel Kasus Dunia</h3>
+			</div>
+			<div class="col-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr class="text-center bg-info text-light">
+							<th scope="col">Negara</th>
+							<th scope="col">Positif</th>
+							<th scope="col">Sembuh</th>
+							<th scope="col">Meninggal</th>
+						</tr>
+					</thead>
+					<tbody id="data-global"></tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
+</body>
+
+</html>

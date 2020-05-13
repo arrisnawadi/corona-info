@@ -1,0 +1,30 @@
+:root {
+	--card-status-text: #ffffff;
+}
+
+html,
+body {
+	max-width: 100%;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+.card-dirawat {
+	background-color: #19b2ff;
+	color: var(--card-status-text);
+}
+
+.card-positif {
+	background-color: #ffdd33;
+	color: var(--card-status-text);
+}
+
+.card-meninggal {
+	background-color: #ff3333;
+	color: var(--card-status-text);
+}
+
+.card-sembuh {
+	background-color: #84de02;
+	color: var(--card-status-text);
+}
