@@ -145,11 +145,11 @@ body {
 
 .scroll-top {
 	position: absolute;
-	bottom: 0;
+	bottom: 60px;
 	right: 0;
 	left: 90%;
-	width: 100px;
-	height: 100px;
+	width: 50px;
+	height: 50px;
 	visibility: hidden;
 }
 
@@ -166,13 +166,13 @@ body {
 
 /* small screen */
 @media (min-width: 576px) and (max-width: 767.98px) {
-	.table-fixed-global tbody tr td:nth-child(1) {
+	/* .table-fixed-global tbody tr td:nth-child(1) {
 		width: 675px;
 	}
 
 	.table-fixed-indo tbody tr td:nth-child(1) {
 		width: 450px;
-	}
+	} */
 
 	.scroll-top {
 		left: 80%;
@@ -181,15 +181,15 @@ body {
 
 /* extra small screen */
 @media (max-width: 575.98px) {
-	.table-fixed-global tbody tr td:nth-child(1) {
+	/* .table-fixed-global tbody tr td:nth-child(1) {
 		width: 400px;
 	}
 
 	.table-fixed-indo tbody tr td:nth-child(1) {
 		width: 350px;
-	}
+	} */
 
 	.scroll-top {
-		left: 75%;
+		left: 70%;
 	}
 }
