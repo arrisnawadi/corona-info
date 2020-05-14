@@ -1,12 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+
 :root {
 	--card-status-text: #ffffff;
 }
 
 html,
 body {
-	max-width: 100%;
+	width: 100%;
+	height: auto;
 	overflow-x: hidden;
 	scroll-behavior: smooth;
+}
+
+.header-text {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.title-text {
+	font-family: 'Roboto Slab', serif;
+}
+
+.bg-image {
+	background-image: url('https://images.unsplash.com/photo-1583423230902-b653abc541eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.bg-header-body {
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
+	color: white;
+	font-weight: bold;
+	border: 3px solid #800000;
+}
+
+.bg-lightblue {
+	background-color: #f7fbfd;
 }
 
 .card-dirawat {
@@ -27,4 +58,138 @@ body {
 .card-sembuh {
 	background-color: #84de02;
 	color: var(--card-status-text);
+}
+
+.table-fixed-indo {
+	width: 100%;
+	table-layout: fixed;
+}
+
+.table-fixed-indo tbody {
+	display: block;
+	width: 100%;
+	overflow: auto;
+	height: 290px;
+}
+
+.table-fixed-indo thead {
+	background: black;
+	color: #fff;
+	width: 100%;
+}
+
+.table-fixed-indo thead tr {
+	display: block;
+}
+
+.table-fixed-indo thead tr th:nth-child(1) {
+	width: 800px;
+}
+
+.table-fixed-indo thead tr th:nth-child(2),
+.table-fixed-indo thead tr th:nth-child(3),
+.table-fixed-indo thead tr th:nth-child(4) {
+	width: 200px;
+}
+
+.table-fixed-indo tbody tr td:nth-child(1) {
+	width: 800px;
+}
+
+.table-fixed-indo tbody tr td:nth-child(2),
+.table-fixed-indo tbody tr td:nth-child(3),
+.table-fixed-indo tbody tr td:nth-child(4) {
+	width: 200px;
+}
+
+.table-fixed-global {
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+.table-fixed-global tbody {
+	display: block;
+	width: 100%;
+	overflow: auto;
+	height: 290px;
+}
+
+.table-fixed-global thead {
+	width: 100%;
+}
+
+.table-fixed-global thead tr {
+	display: block;
+}
+
+.table-fixed-global thead tr th:nth-child(1) {
+	width: 800px;
+}
+
+.table-fixed-global thead tr th:nth-child(2),
+.table-fixed-global thead tr th:nth-child(3),
+.table-fixed-global thead tr th:nth-child(4) {
+	width: 200px;
+}
+
+.table-fixed-global tbody tr td:nth-child(1) {
+	width: 800px;
+}
+
+.table-fixed-global tbody tr td:nth-child(2),
+.table-fixed-global tbody tr td:nth-child(3),
+.table-fixed-global tbody tr td:nth-child(4) {
+	width: 200px;
+}
+
+.scroll-top {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 90%;
+	width: 100px;
+	height: 100px;
+	visibility: hidden;
+}
+
+.scroll-top a:hover {
+	opacity: 0.9;
+}
+
+/* medium screen */
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.scroll-top {
+		left: 85%;
+	}
+}
+
+/* small screen */
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.table-fixed-global tbody tr td:nth-child(1) {
+		width: 675px;
+	}
+
+	.table-fixed-indo tbody tr td:nth-child(1) {
+		width: 450px;
+	}
+
+	.scroll-top {
+		left: 80%;
+	}
+}
+
+/* extra small screen */
+@media (max-width: 575.98px) {
+	.table-fixed-global tbody tr td:nth-child(1) {
+		width: 400px;
+	}
+
+	.table-fixed-indo tbody tr td:nth-child(1) {
+		width: 350px;
+	}
+
+	.scroll-top {
+		left: 75%;
+	}
 }

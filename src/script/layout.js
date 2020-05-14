@@ -52,12 +52,16 @@ export const dataProvinsi = (dataProv) => {
     provTable.innerHTML = ''
 
     dataProv.forEach(data => {
+        let positif = data.attributes.Kasus_Posi.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        let sembuh = data.attributes.Kasus_Semb.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        let meninggal = data.attributes.Kasus_Meni.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+
         provTable.innerHTML += `
-        <tr>
+        <tr class="border-dark">
             <td scope="col">${data.attributes.Provinsi}</td>
-            <td scope="col">${data.attributes.Kasus_Posi}</td>
-            <td scope="col">${data.attributes.Kasus_Semb}</td>
-            <td scope="col">${data.attributes.Kasus_Meni}</td>
+            <td scope="col">${positif}</td>
+            <td scope="col">${sembuh}</td>
+            <td scope="col">${meninggal}</td>
         </tr>
         `
     });
@@ -201,7 +205,7 @@ export const dataAllGlobal = (data) => {
 
     globalCard.innerHTML = `    
     <div class="col my-2">
-		<div class="card card-dirawat d-flex flex-row">
+		<div class="card card-dirawat d-flex flex-row h-100">
 			<div class="card-body">
 				<h5 class="card-title text-center">Positif</h5>
 				<h3 class="card-text text-center">${positif}</h3>
@@ -211,7 +215,7 @@ export const dataAllGlobal = (data) => {
 	</div>
 
     <div class="col my-2">
-		<div class="card card-sembuh d-flex flex-row">
+		<div class="card card-sembuh d-flex flex-row h-100">
 			<div class="card-body">
 				<h5 class="card-title text-center">Sembuh</h5>
 				<h3 class="card-text text-center">${sembuh}</h3>
@@ -221,7 +225,7 @@ export const dataAllGlobal = (data) => {
 	</div>
 
     <div class="col my-2">
-		<div class="card card-meninggal d-flex flex-row">
+		<div class="card card-meninggal d-flex flex-row h-100">
 			<div class="card-body">
 				<h5 class="card-title text-center">Meninggal</h5>
 				<h3 class="card-text text-center">${meninggal}</h3>
@@ -238,12 +242,16 @@ export const dataGlobal = (datas) => {
     globalTable.innerHTML = ''
 
     datas.forEach(data => {
+        let positif = data.attributes.Confirmed.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        let sembuh = data.attributes.Recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        let meninggal = data.attributes.Deaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+
         globalTable.innerHTML += `
         <tr>
             <td scope="col">${data.attributes.Country_Region}</td>
-            <td scope="col">${data.attributes.Confirmed}</td>
-            <td scope="col">${data.attributes.Recovered}</td>
-            <td scope="col">${data.attributes.Deaths}</td>
+            <td scope="col">${positif}</td>
+            <td scope="col">${sembuh}</td>
+            <td scope="col">${meninggal}</td>
         </tr>
         `
     });
