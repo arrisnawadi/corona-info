@@ -10,7 +10,7 @@ export const dataIndo = (data) => {
 				<h5 class="card-title text-center">Positif</h5>
 				<h3 class="card-text text-center">${data.positif}</h3>
 			</div>
-			<img src="https://img.icons8.com/cute-clipart/64/000000/neutral-emoticon.png" class="mx-3 my-2" style="width: 100px;" />
+			<img src="https://img.icons8.com/cute-clipart/64/000000/sad.png" alt="total_positif" class="mx-3 my-2" style="width: 100px;" />
 		</div>
     </div>
     
@@ -20,7 +20,7 @@ export const dataIndo = (data) => {
 				<h5 class="card-title text-center">Dirawat</h5>
 				<h3 class="card-text text-center">${data.dirawat}</h3>
 			</div>
-			<img src="https://img.icons8.com/cute-clipart/64/000000/sad.png" class="mx-3 my-2" style="width: 100px;" />
+			<img src="https://img.icons8.com/cute-clipart/64/000000/neutral-emoticon.png" alt="total_dirawat" class="mx-3 my-2" style="width: 100px;" />
 		</div>
 	</div>
 
@@ -30,7 +30,7 @@ export const dataIndo = (data) => {
 				<h5 class="card-title text-center">Sembuh</h5>
 				<h3 class="card-text text-center">${data.sembuh}</h3>
 			</div>
-			<img src="https://img.icons8.com/cute-clipart/64/000000/happy.png" class="mx-3 my-2" style="width: 100px;" />
+			<img src="https://img.icons8.com/cute-clipart/64/000000/happy.png" alt="total_sembuh" class="mx-3 my-2" style="width: 100px;" />
 		</div>
 	</div>
 
@@ -40,7 +40,7 @@ export const dataIndo = (data) => {
 				<h5 class="card-title text-center">Meninggal</h5>
 				<h3 class="card-text text-center">${data.meninggal}</h3>
             </div>
-			<img src="https://img.icons8.com/cute-clipart/64/000000/crying.png" class="mx-3 my-2" style="width: 100px;" />
+			<img src="https://img.icons8.com/cute-clipart/64/000000/crying.png" alt="total_meninggal" class="mx-3 my-2" style="width: 100px;" />
 		</div>
 	</div>
     `
@@ -57,7 +57,7 @@ export const dataProvinsi = (dataProv) => {
         let meninggal = data.attributes.Kasus_Meni.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 
         provTable.innerHTML += `
-        <tr class="border-dark">
+        <tr>
             <td scope="col">${data.attributes.Provinsi}</td>
             <td scope="col">${positif}</td>
             <td scope="col">${sembuh}</td>
@@ -196,10 +196,6 @@ export const chartMeninggalProv = async (dataChart) => {
 
 // menampilkan total data global
 export const dataAllGlobal = (data) => {
-    let positif = data.TotalConfirmed.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    let sembuh = data.TotalRecovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    let meninggal = data.TotalDeaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-
     const globalCard = document.querySelector(".data-all-global")
     globalCard.innerHTML = ''
 
@@ -208,9 +204,9 @@ export const dataAllGlobal = (data) => {
 		<div class="card card-dirawat d-flex flex-row h-100">
 			<div class="card-body">
 				<h5 class="card-title text-center">Positif</h5>
-				<h3 class="card-text text-center">${positif}</h3>
+				<h3 class="card-text text-center">${data.total_cases}</h3>
 			</div>
-			<img src="https://img.icons8.com/cute-clipart/64/000000/sad.png" class="mx-3 my-2" style="width: 100px;" />
+			<img src="https://img.icons8.com/cute-clipart/64/000000/sad.png" alt="total_positif" class="mx-3 my-2" style="width: 100px;" />
 		</div>
 	</div>
 
@@ -218,19 +214,19 @@ export const dataAllGlobal = (data) => {
 		<div class="card card-sembuh d-flex flex-row h-100">
 			<div class="card-body">
 				<h5 class="card-title text-center">Sembuh</h5>
-				<h3 class="card-text text-center">${sembuh}</h3>
+				<h3 class="card-text text-center">${data.recovery_cases}</h3>
 			</div>
-			<img src="https://img.icons8.com/cute-clipart/64/000000/happy.png" class="mx-3 my-2" style="width: 100px;" />
+			<img src="https://img.icons8.com/cute-clipart/64/000000/happy.png" alt="total_sembuh" class="mx-3 my-2" style="width: 100px;" />
 		</div>
 	</div>
 
-    <div class="col my-2">
+    <div class="col my-2 mx-auto">
 		<div class="card card-meninggal d-flex flex-row h-100">
 			<div class="card-body">
 				<h5 class="card-title text-center">Meninggal</h5>
-				<h3 class="card-text text-center">${meninggal}</h3>
+				<h3 class="card-text text-center">${data.death_cases}</h3>
             </div>
-			<img src="https://img.icons8.com/cute-clipart/64/000000/crying.png" class="mx-3 my-2" style="width: 100px;" />
+			<img src="https://img.icons8.com/cute-clipart/64/000000/crying.png" alt="total_meninggal" class="mx-3 my-2" style="width: 100px;" />
 		</div>
 	</div>
     `

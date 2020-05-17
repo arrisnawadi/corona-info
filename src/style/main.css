@@ -40,6 +40,10 @@ body {
 	background-color: #f7fbfd;
 }
 
+.bg-maroon {
+	background-color: maroon;
+}
+
 .card-dirawat {
 	background-color: #19b2ff;
 	color: var(--card-status-text);
@@ -61,7 +65,7 @@ body {
 }
 
 .table-fixed-indo {
-	width: 100%;
+	max-width: 100%;
 	table-layout: fixed;
 	border-collapse: collapse;
 }
@@ -74,8 +78,6 @@ body {
 }
 
 .table-fixed-indo thead {
-	background: black;
-	color: #fff;
 	width: 100%;
 }
 
@@ -95,6 +97,10 @@ body {
 
 .table-fixed-indo tbody tr td:nth-child(1) {
 	width: 800px;
+}
+
+.table-fixed-indo tbody {
+	width: 100%;
 }
 
 .table-fixed-indo tbody tr td:nth-child(2),
@@ -134,6 +140,10 @@ body {
 	width: 200px;
 }
 
+.table-fixed-global tbody {
+	width: 100%;
+}
+
 .table-fixed-global tbody tr td:nth-child(1) {
 	width: 800px;
 }
@@ -146,11 +156,10 @@ body {
 
 .scroll-top {
 	position: absolute;
-	bottom: 20px;
-	right: 0;
-	left: 85%;
+	bottom: 50px;
+	right: 20px;
 	width: 50px;
-	height: 50px;
+	height: 35px;
 	visibility: hidden;
 }
 
@@ -158,27 +167,13 @@ body {
 	opacity: 0.9;
 }
 
-/* medium screen */
-@media (min-width: 768px) and (max-width: 991.98px) {
-	.scroll-top {
-		left: 85%;
-	}
-}
-
-/* small screen */
-@media (min-width: 576px) and (max-width: 767.98px) {
-	.scroll-top {
-		left: 70%;
-	}
-}
-
 /* extra small screen */
-@media (max-width: 575.98px) {
-	.scroll-top {
-		left: 60%;
+@media (max-width: 500px) {
+	.table-fixed-indo thead tr {
+		font-size: 14px;
 	}
 
-	.table-fixed-indo thead tr th:nth-child(4) {
-		width: 225px;
+	.table-fixed-global thead tr {
+		font-size: 14px;
 	}
 }

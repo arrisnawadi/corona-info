@@ -1,15 +1,15 @@
 import { dataIndo, dataProvinsi, dataGlobal, dataAllGlobal, chartProv, chartSembuhProv, chartMeninggalProv } from "./layout"
 
 function main() {
-    var proxy = "//cors-anywhere.herokuapp.com";
-    var url = "https://api.kawalcorona.com/indonesia/";
-    var urlProv = "https://api.kawalcorona.com/indonesia/provinsi/";
-    var urlGlobal = "https://api.kawalcorona.com/";
+    const proxy = "//cors-anywhere.herokuapp.com"
+    const allIndo = "https://api.kawalcorona.com/indonesia/"
+    const indoProv = "https://api.kawalcorona.com/indonesia/provinsi/"
+    const globalAll = "https://api.kawalcorona.com/"
 
     // data kasus di Indonesia
     const getIndo = async () => {
         try {
-            const response = await fetch(proxy + '/' + url)
+            const response = await fetch(proxy + '/' + allIndo)
             const responseJSON = await response.json()
             if (responseJSON) {
                 dataIndo(responseJSON[0])
@@ -24,7 +24,7 @@ function main() {
     // data kasus seluruh provinsi di Indonesia
     const getDataProv = async () => {
         try {
-            const response = await fetch(proxy + '/' + urlProv)
+            const response = await fetch(proxy + '/' + indoProv)
             const responseJSON = await response.json()
             if (responseJSON) {
                 dataProvinsi(responseJSON)
@@ -39,7 +39,7 @@ function main() {
     // data kasus seluruh provinsi di Indonesia
     const getChartIndo = async () => {
         try {
-            const response = await fetch(proxy + '/' + urlProv)
+            const response = await fetch(proxy + '/' + indoProv)
             const responseJSON = await response.json()
             if (responseJSON) {
                 const filterPos = responseJSON.filter(data => data.attributes.Kasus_Posi > 300)
@@ -58,13 +58,13 @@ function main() {
         }
     }
 
-    // data kasus di Indonesia
-    const getAllGlobal = async () => {
+    // data kasus global
+    const getGlobalPos = async () => {
         try {
-            const response = await fetch('https://api.covid19api.com/summary')
+            const response = await fetch(`https://corona-virus-stats.herokuapp.com/api/v1/cases/general-stats`)
             const responseJSON = await response.json()
             if (responseJSON) {
-                dataAllGlobal(responseJSON.Global)
+                dataAllGlobal(responseJSON.data)
             } else {
                 console.log("Couldn't get data")
             }
@@ -76,7 +76,7 @@ function main() {
     // data kasus seluruh negara di dunia
     const getDataGlobal = async () => {
         try {
-            const response = await fetch(proxy + '/' + urlGlobal)
+            const response = await fetch(proxy + '/' + globalAll)
             const responseJSON = await response.json()
             if (responseJSON) {
                 dataGlobal(responseJSON)
@@ -92,7 +92,7 @@ function main() {
         getIndo()
         getDataProv()
         getChartIndo()
-        getAllGlobal()
+        getGlobalPos()
         getDataGlobal()
     })
 }
