@@ -169,11 +169,8 @@ body {
 
 /* extra small screen */
 @media (max-width: 500px) {
-	.table-fixed-indo thead tr {
-		font-size: 14px;
-	}
-
-	.table-fixed-global thead tr {
+	.table-fixed-indo,
+	.table-fixed-global {
 		font-size: 14px;
 	}
 }
