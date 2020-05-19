@@ -88,7 +88,7 @@ export const chartProv = async (dataChart) => {
     const data = await grafikWilayah(dataChart)
     const ctx = document.getElementById('chartAllProv').getContext('2d');
     const myChart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: data.xAxis,
             datasets: [
