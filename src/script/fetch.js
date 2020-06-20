@@ -1,18 +1,18 @@
-import { dataIndo, dataProvinsi, dataGlobal, dataAllGlobal, chartProv, chartSembuhProv, chartMeninggalProv } from "./layout"
+import { viewDataIndo, viewDataProv, viewDataGlobal, viewGlobal, chartProv, chartSembuhProv, chartMeninggalProv } from "./layout"
 
 function main() {
     const proxy = "//cors-anywhere.herokuapp.com"
-    const allIndo = "https://api.kawalcorona.com/indonesia/"
-    const indoProv = "https://api.kawalcorona.com/indonesia/provinsi/"
+    const dataIndo = "https://api.kawalcorona.com/indonesia/"
+    const dataProv = "https://api.kawalcorona.com/indonesia/provinsi/"
     const globalAll = "https://api.kawalcorona.com/"
 
     // data kasus di Indonesia
-    const getIndo = async () => {
+    const getDataIndo = async () => {
         try {
-            const response = await fetch(proxy + '/' + allIndo)
+            const response = await fetch(proxy + '/' + dataIndo)
             const responseJSON = await response.json()
             if (responseJSON) {
-                dataIndo(responseJSON[0])
+                viewDataIndo(responseJSON[0])
             } else {
                 console.log("Couldn't get data")
             }
@@ -24,10 +24,10 @@ function main() {
     // data kasus seluruh provinsi di Indonesia
     const getDataProv = async () => {
         try {
-            const response = await fetch(proxy + '/' + indoProv)
+            const response = await fetch(proxy + '/' + dataProv)
             const responseJSON = await response.json()
             if (responseJSON) {
-                dataProvinsi(responseJSON)
+                viewDataProv(responseJSON)
             } else {
                 console.log("Couldn't get data")
             }
@@ -39,16 +39,16 @@ function main() {
     // data kasus seluruh provinsi di Indonesia
     const getChartIndo = async () => {
         try {
-            const response = await fetch(proxy + '/' + indoProv)
+            const response = await fetch(proxy + '/' + dataProv)
             const responseJSON = await response.json()
             if (responseJSON) {
-                const filterPos = responseJSON.filter(data => data.attributes.Kasus_Posi > 300)
+                const filterPos = responseJSON.filter(data => data.attributes.Kasus_Posi > 1000)
                 chartProv(filterPos)
 
-                const filterSem = responseJSON.filter(data => data.attributes.Kasus_Semb > 100)
+                const filterSem = responseJSON.filter(data => data.attributes.Kasus_Semb > 500)
                 chartSembuhProv(filterSem)
 
-                const filterMen = responseJSON.filter(data => data.attributes.Kasus_Meni > 50)
+                const filterMen = responseJSON.filter(data => data.attributes.Kasus_Meni > 100)
                 chartMeninggalProv(filterMen)
             } else {
                 console.log("Couldn't get data")
@@ -64,7 +64,7 @@ function main() {
             const response = await fetch(`https://corona-virus-stats.herokuapp.com/api/v1/cases/general-stats`)
             const responseJSON = await response.json()
             if (responseJSON) {
-                dataAllGlobal(responseJSON.data)
+                viewGlobal(responseJSON.data)
             } else {
                 console.log("Couldn't get data")
             }
@@ -79,7 +79,7 @@ function main() {
             const response = await fetch(proxy + '/' + globalAll)
             const responseJSON = await response.json()
             if (responseJSON) {
-                dataGlobal(responseJSON)
+                viewDataGlobal(responseJSON)
             } else {
                 console.log("Couldn't get data")
             }
@@ -89,7 +89,7 @@ function main() {
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-        getIndo()
+        getDataIndo()
         getDataProv()
         getChartIndo()
         getGlobalPos()

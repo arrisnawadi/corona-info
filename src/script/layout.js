@@ -1,53 +1,28 @@
 // menampilkan data kasus di Indonesia
-export const dataIndo = (data) => {
+export const viewDataIndo = (data) => {
     const indoCard = document.querySelector(".data-indo")
+    const dataStat = [data.positif, data.dirawat, data.sembuh, data.meninggal]
+    const status = ['positif', 'dirawat', 'sembuh', 'meninggal']
+    const emot = ['neutral-emoticon', 'sad', 'happy', 'crying']
     indoCard.innerHTML = ''
 
-    indoCard.innerHTML = `
-    <div class="col my-2">
-		<div class="card card-positif d-flex flex-row">
-			<div class="card-body" style="width: 65%;">
-				<h5 class="card-title text-center">Positif</h5>
-				<h3 class="card-text text-center">${data.positif}</h3>
-			</div>
-			<img src="https://img.icons8.com/cute-clipart/64/000000/sad.png" alt="total_positif" class="mx-3 my-2" style="width: 100px;" />
-		</div>
-    </div>
-    
-    <div class="col my-2">
-		<div class="card card-dirawat d-flex flex-row">
-			<div class="card-body" style="width: 65%;">
-				<h5 class="card-title text-center">Dirawat</h5>
-				<h3 class="card-text text-center">${data.dirawat}</h3>
-			</div>
-			<img src="https://img.icons8.com/cute-clipart/64/000000/neutral-emoticon.png" alt="total_dirawat" class="mx-3 my-2" style="width: 100px;" />
-		</div>
-	</div>
-
-    <div class="col my-2">
-		<div class="card card-sembuh d-flex flex-row">
-			<div class="card-body" style="width: 65%;">
-				<h5 class="card-title text-center">Sembuh</h5>
-				<h3 class="card-text text-center">${data.sembuh}</h3>
-			</div>
-			<img src="https://img.icons8.com/cute-clipart/64/000000/happy.png" alt="total_sembuh" class="mx-3 my-2" style="width: 100px;" />
-		</div>
-	</div>
-
-    <div class="col my-2">
-		<div class="card card-meninggal d-flex flex-row">
-			<div class="card-body" style="width: 65%;">
-				<h5 class="card-title text-center">Meninggal</h5>
-				<h3 class="card-text text-center">${data.meninggal}</h3>
+    status.forEach((stat, index) => {
+        indoCard.innerHTML += `
+        <div class="col my-2">
+            <div class="card card-${stat} d-flex flex-row">
+                <div class="card-body" style="width: 65%;">
+                    <h5 class="card-title text-center">${stat.toUpperCase()}</h5>
+                    <h3 class="card-text text-center">${dataStat[index]}</h3>
+                </div>
+                <img src="https://img.icons8.com/color/96/000000/${emot[index]}--v1.png" alt="total_${stat}" class="mx-3 my-2" style="width: 100px;" />
             </div>
-			<img src="https://img.icons8.com/cute-clipart/64/000000/crying.png" alt="total_meninggal" class="mx-3 my-2" style="width: 100px;" />
-		</div>
-	</div>
-    `
+        </div>
+        `
+    })
 }
 
 // menampilkan data semua provinsi Indonesia
-export const dataProvinsi = (dataProv) => {
+export const viewDataProv = (dataProv) => {
     const provTable = document.getElementById("data-wilayah")
     provTable.innerHTML = ''
 
@@ -93,7 +68,7 @@ export const chartProv = async (dataChart) => {
             labels: data.xAxis,
             datasets: [
                 {
-                    label: 'Kasus Positif > 300 Orang',
+                    label: 'Positif Corona > 1.000 Orang',
                     data: data.yAxis,
                     fill: false,
                     backgroundColor: 'rgba(51,51,255,0.2)',
@@ -130,7 +105,7 @@ export const chartSembuhProv = async (dataChart) => {
             labels: data.xAxis,
             datasets: [
                 {
-                    label: 'Kasus Sembuh > 100 Orang',
+                    label: 'Sembuh Corona > 500 Orang',
                     data: data.yAxisSembuh,
                     fill: false,
                     backgroundColor: 'rgba(0,204,0,0.2)',
@@ -167,7 +142,7 @@ export const chartMeninggalProv = async (dataChart) => {
             labels: data.xAxis,
             datasets: [
                 {
-                    label: 'Kasus Meninggal > 50 Orang',
+                    label: 'Meninggal Corona > 100 Orang',
                     data: data.yAxisMeninggal,
                     fill: false,
                     backgroundColor: 'rgba(255,0,51,0.2)',
@@ -195,52 +170,38 @@ export const chartMeninggalProv = async (dataChart) => {
 }
 
 // menampilkan total data global
-export const dataAllGlobal = (data) => {
+export const viewGlobal = (data) => {
     const globalCard = document.querySelector(".data-all-global")
+    const dataStat = [data.total_cases, data.recovery_cases, data.death_cases]
+    const status = ['positif', 'sembuh', 'meninggal']
+    const emot = ['sad', 'happy', 'crying']
     globalCard.innerHTML = ''
 
-    globalCard.innerHTML = `    
-    <div class="col my-2">
-		<div class="card card-dirawat d-flex flex-row h-100">
-			<div class="card-body">
-				<h5 class="card-title text-center">Positif</h5>
-				<h3 class="card-text text-center">${data.total_cases}</h3>
-			</div>
-			<img src="https://img.icons8.com/cute-clipart/64/000000/sad.png" alt="total_positif" class="mx-3 my-2" style="width: 100px;" />
-		</div>
-	</div>
-
-    <div class="col my-2">
-		<div class="card card-sembuh d-flex flex-row h-100">
-			<div class="card-body">
-				<h5 class="card-title text-center">Sembuh</h5>
-				<h3 class="card-text text-center">${data.recovery_cases}</h3>
-			</div>
-			<img src="https://img.icons8.com/cute-clipart/64/000000/happy.png" alt="total_sembuh" class="mx-3 my-2" style="width: 100px;" />
-		</div>
-	</div>
-
-    <div class="col my-2 mx-auto">
-		<div class="card card-meninggal d-flex flex-row h-100">
-			<div class="card-body">
-				<h5 class="card-title text-center">Meninggal</h5>
-				<h3 class="card-text text-center">${data.death_cases}</h3>
+    status.forEach((stat, index) => {
+        globalCard.innerHTML += `
+        <div class="col my-2">
+            <div class="card card-${stat} d-flex flex-row h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-center">${stat.toUpperCase()}</h5>
+                    <h3 class="card-text text-center">${dataStat[index]}</h3>
+                </div>
+                <img src="https://img.icons8.com/color/96/000000/${emot[index]}--v1.png" alt="total_${stat}" class="mx-3 my-2" style="width: 100px;" />
             </div>
-			<img src="https://img.icons8.com/cute-clipart/64/000000/crying.png" alt="total_meninggal" class="mx-3 my-2" style="width: 100px;" />
-		</div>
-	</div>
-    `
+	    </div>
+        `
+    })
 }
 
 // menampilkan data global
-export const dataGlobal = (datas) => {
+export const viewDataGlobal = (dataGlob) => {
     const globalTable = document.getElementById("data-global")
     globalTable.innerHTML = ''
 
-    datas.forEach(data => {
+    dataGlob.forEach(data => {
         let positif = data.attributes.Confirmed.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        let sembuh = data.attributes.Recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        let sembuh = (data.attributes.Recovered == null) ? 0 : data.attributes.Recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
         let meninggal = data.attributes.Deaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        // let meninggal = data.attributes.Deaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 
         globalTable.innerHTML += `
         <tr>
@@ -252,4 +213,3 @@ export const dataGlobal = (datas) => {
         `
     });
 }
-

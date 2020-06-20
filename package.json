@@ -6,7 +6,7 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "webpack --config webpack.prod.js",
-		"start-dev": "webpack-dev-server --config webpack.dev.js",
+		"start:dev": "webpack-dev-server --config webpack.dev.js",
 		"deploy": "gh-pages -d dist"
 	},
 	"author": "Ari Risnawadi",
