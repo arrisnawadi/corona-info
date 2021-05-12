@@ -15,7 +15,7 @@
 		"@babel/core": "^7.9.6",
 		"@babel/preset-env": "^7.9.6",
 		"babel-loader": "^8.1.0",
-		"chart.js": "^2.9.3",
+		"chart.js": "^2.9.4",
 		"css-loader": "^3.5.3",
 		"gh-pages": "^2.2.0",
 		"html-loader": "^1.1.0",
